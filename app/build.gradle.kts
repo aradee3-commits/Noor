@@ -15,7 +15,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+        vectorDrawables { useSupportLibrary = true }
     }
 
     buildTypes {
@@ -27,10 +27,12 @@ android {
             )
         }
         debug {
-            // Extra debug config if needed
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
+            // إعدادات Debug الافتراضية
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     compileOptions {
@@ -41,32 +43,16 @@ android {
         jvmTarget = "17"
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
-
-    // AndroidX core
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
-    implementation("androidx.activity:activity-ktx:1.9.1")
-
-    // (Placeholder) OCR / ML dependencies can be added later, e.g. ML Kit Text Recognition
-    // implementation("com.google.mlkit:text-recognition:16.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
