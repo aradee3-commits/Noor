@@ -1,8 +1,21 @@
-# ProGuard / R8 rules for Noor
-# Keep application class and main activity (adjust if new classes are added)
--keep class com.example.noor.MainActivity { *; }
+# قواعد مبدئية - وسّعها لاحقاً حسب المكتبات التي ستضيفها
 
-# Keep view binding classes (generated)
--keep class **Binding { *; }
+# احتفظ بفئات R (تلقائياً عادةً)
+-keep class **.R {
+    *;
+}
+-keep class **.R$* {
+    *;
+}
 
-# If using ML Kit or reflection-heavy libs later, add their keep rules here.
+# (اختياري) الإبقاء على أسماء الدوال العامة في الحزم الداخلية لاحقاً عند إضافة مكتبات انعكاس/JSON
+# -keepclassmembers class com.example.noor.** { *; }
+
+# تجاهل التحذيرات العامة
+-dontwarn javax.annotation.**
+-dontwarn org.jetbrains.annotations.**
+
+# تحسينات افتراضية (يُوفّرها ملف Android الافتراضي أيضاً)
+# إذا واجهت مشاكل في Debugging، يمكنك تعطيل الإزالة:
+# -dontoptimize
+# -dontobfuscate
