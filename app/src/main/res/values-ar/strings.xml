@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">نور</string>
+    <string name="greeting">مرحباً %1$s!</string>
+</resources>

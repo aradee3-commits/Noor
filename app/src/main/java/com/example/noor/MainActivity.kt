@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.material3.Text
 import com.example.noor.ui.theme.NoorTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,13 +31,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Text(text = stringResource(id = R.string.greeting, name))
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, locale = "en")
 @Composable
-fun GreetingPreview() {
-    NoorTheme {
-        Greeting("Preview")
-    }
+fun GreetingPreviewEn() {
+    NoorTheme { Greeting("Preview") }
+}
+
+@Preview(showBackground = true, locale = "ar")
+@Composable
+fun GreetingPreviewAr() {
+    NoorTheme { Greeting("معاينة") }
 }
