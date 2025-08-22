@@ -1,24 +1,42 @@
 package com.example.noor
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.noor.databinding.ActivityMainBinding
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Text
+import com.example.noor.ui.theme.NoorTheme
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.messageText.text = getString(R.string.welcome_message)
-
-        // TODO: لاحقاً: إضافة منطق التقاط/اختيار صورة ثم تنفيذ OCR
-        binding.actionButton.setOnClickListener {
-            // Placeholder action
-            binding.messageText.text = getString(R.string.placeholder_action)
+        setContent {
+            NoorTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
+                }
+            }
         }
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    NoorTheme {
+        Greeting("Preview")
     }
 }
