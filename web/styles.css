@@ -1,0 +1,235 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #4a5568;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.counter-display {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.counter-label {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+}
+
+.counter-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Content layout */
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    min-width: 150px;
+}
+
+.add-btn {
+    background: linear-gradient(45deg, #48bb78, #38a169);
+    color: white;
+}
+
+.remove-btn {
+    background: linear-gradient(45deg, #f56565, #e53e3e);
+    color: white;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #4299e1, #3182ce);
+    color: white;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active {
+    transform: translateY(-1px);
+}
+
+.control-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Canvas container */
+.scene-container {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, #e2e8f0, #f7fafc);
+    border-radius: 20px;
+    box-shadow: 
+        inset 0 8px 25px rgba(0, 0, 0, 0.1),
+        0 8px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cubeCanvas {
+    border-radius: 16px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Instructions */
+.instructions {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.instructions h3 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.instructions ul {
+    list-style: none;
+}
+
+.instructions li {
+    margin: 10px 0;
+    padding: 10px;
+    background: linear-gradient(45deg, #bee3f8, #90cdf4);
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+/* Loading animation */
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    color: #4a5568;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .scene-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .counter-label {
+        font-size: 1.1em;
+    }
+    
+    .counter-value {
+        font-size: 1.5em;
+    }
+    
+    .scene-container {
+        height: 300px;
+    }
+}
