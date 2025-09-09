@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor - Interactive Counting with 3D Cubes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧮 Let's Count with Colorful Cubes! 🎲</h1>
+            <div class="counter-display">
+                <span class="counter-label">Cubes Count:</span>
+                <span id="cubeCounter" class="counter-value">0</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="controls">
+                <button id="addCube" class="control-btn add-btn">
+                    ➕ Add Cube
+                </button>
+                <button id="removeCube" class="control-btn remove-btn">
+                    ➖ Remove Cube
+                </button>
+                <button id="resetCubes" class="control-btn reset-btn">
+                    🔄 Start Over
+                </button>
+            </div>
+
+            <div id="canvas-container" class="scene-container">
+                <canvas id="cubeCanvas" width="800" height="500"></canvas>
+            </div>
+
+            <div class="instructions">
+                <h3>How to Play:</h3>
+                <ul>
+                    <li>👆 Click "Add Cube" to place a new colorful cube</li>
+                    <li>👆 Click "Remove Cube" to take away the last cube</li>
+                    <li>👀 Watch the counter change as you add and remove cubes</li>
+                    <li>🎯 Try counting along as you build!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
